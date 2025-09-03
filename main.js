@@ -1,5 +1,7 @@
-const apiURL = 'https://pokeapi.co/api/v2/pokemon/'
-const pokemonList = document.querySelector("#pokemon-card")
+const apiURL = 'https://pokeapi.co/api/v2/pokemon/';
+const pokemonList = document.querySelector("#pokemon-card");
+const buttonsHeader = document.querySelectorAll(".btn-header"); // Cambiado a querySelectorAll
+let allPokemons = []; // Nueva variable global para almacenar todos los Pokémon
 
 async function getPokemons() {
     try {
@@ -9,6 +11,7 @@ async function getPokemons() {
       const pokemons = await Promise.all(pokemonPromises);
       pokemons.sort((a, b) => a.id - b.id);
       
+      allPokemons = pokemons; // Almacenar todos los Pokémon globalmente
       pokemons.forEach(pokemon => showPokemon(pokemon));
     } catch (error) {
       console.error("Error cargando Pokémon:", error);
@@ -45,5 +48,17 @@ function showPokemon(data) {
     `;
     pokemonList.appendChild(div);
 }
+
+buttonsHeader.forEach(button => button.addEventListener('click', (event) => {
+    pokemonList.innerHTML = ''; // Limpiar la lista actual
+    const buttonId = event.currentTarget.id;
+
+    if (buttonId === "ver-todos") {
+        allPokemons.forEach(pokemon => showPokemon(pokemon));
+    } else {
+        const pokemonsFiltered = allPokemons.filter(pokemon => pokemon.types.some(type => type.type.name === buttonId));
+        pokemonsFiltered.forEach(pokemon => showPokemon(pokemon));
+    }
+}));
 
 getPokemons();
