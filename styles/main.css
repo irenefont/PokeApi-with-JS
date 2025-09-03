@@ -90,7 +90,6 @@ nav {
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
-    padding-inline: 1rem;
     max-width: 1000px;
     margin: 0 auto;
     padding-inline: 2rem;
@@ -230,6 +229,30 @@ main {
     background-color: var(--crl-gray);
     padding: .25rem .5rem;
     border-radius: 100vmax;
+}
+
+.searchBar-container {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding-bottom: .5rem;
+}
+
+.searchBar {
+    border: none;
+    background-color: var(--crl-white);
+    outline: none;
+    padding: 1rem 1.5rem;
+    border-radius: 100vmax;
+    font-size: 1rem;
+    color: var(--crl-black);
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .25);
+    transition: .2s ease-in-out;
+    width: 100%;
+}
+
+.searchBar:focus {
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
 }
 
 /* -------------- ASIGNACION TIPOS ------------- */

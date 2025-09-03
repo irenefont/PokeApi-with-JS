@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/pokeball.png" />
     <title>Pokédex APIv2 with JS</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <header>
         <nav>
             <img src="assets/img/logo.png" alt="Pokédex Logo">
+            <div class="searchBar-container">
+                <input type="search" class="searchBar" id="searchBar" name="searchBar" placeholder="Busca tu Pokémon...">
+            </div>
             <ul class="nav-types" id="">
                 <li><button class="btn btn-header" id="ver-todos">Ver Todos</button></li>
                 <li><button class="btn btn-header normal" id="normal">Normal</button></li>
@@ -45,6 +48,7 @@
         </div>
     </main>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
